@@ -18,9 +18,13 @@
 				console.log(`onChange called on the ${which} with value "${event.target.value}"`);
 			}
 
+			function selectHandler({target}) {
+				console.log(Array.from(target.selectedOptions).map((option) => option.value));
+			}
+
 			function FormExample() {
 				return (
-					<form onChange={changeHandler.bind(null, 'form')}>
+					<form>
 						<label>
 							Type here:<br />
 							<input type="text" onChange={changeHandler.bind(null, 'text input')} />
@@ -35,6 +39,27 @@
 							<input type="radio" className="radio" name="pick" value="option2"
 								onChange={changeHandler.bind(null, 'radio 2')} />
 								Option 2
+						</label><br />
+						<label>
+							Type here:<br />
+							<textarea	
+								defaultValue={'hello\nworld'}
+								onChange={changeHandler}
+							/>{' '}
+						</label><br />
+						<select defaultValue="move" onChange={changeHandler}>
+							<option value="stay">Should I stay</option>
+							<option value="move">or should I go</option>
+						</select><br />
+						<label>
+							Or with multi-selects:<br />
+							<select defaultValue={['stay', 'move']}
+								multiple={true}
+								onChange={selectHandler}>
+								<option value="stay">Should I stay</option>
+								<option value="move">or should I go</option>
+								<option value="trouble">If I stay it will be trouble </option>
+							</select>
 						</label>
 					</form>
 				);
