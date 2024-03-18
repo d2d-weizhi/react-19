@@ -1,0 +1,17 @@
+.wrapper {
+	margin: 4% auto;
+	width: 800px;
+}
+
+.Discovery h2, .Discovery h3, .Discovery p, .Discovery-pad {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+.Discovery .Discovery-custom-button {
+  background-color: chocolate;
+}
+
+.Discovery-narrow {
+  width: 400px;
+}
