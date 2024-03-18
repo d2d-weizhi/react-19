@@ -1,5 +1,5 @@
 import Excel from './Excel';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Logo from './Logo';
 import Body from './Body';
 import Button from './Button';
@@ -9,8 +9,47 @@ import Rating from './Rating';
 import FormInput from './FormInput';
 import Form from './Form';
 import Actions from './Actions';
+import Dialog from './Dialog';
+import schema from '../config/schema';
 
 const options = ['eenie', 'meenie', 'miney', 'mo'];
+
+function DialogExample() {
+	const [example, setExample] = useState(null);
+
+	return (
+		<>
+			<p>
+				<Button onClick={() => setExample(1)}>Example 1</Button>{' '}
+				<Button onClick={() => setExample(2)}>Example 2</Button>
+			</p>
+			{example === 1 ? (
+				<Dialog
+					modal
+					header="Out-of-the-box example"
+					onAction={(type) => {
+						alert(type);
+						setExample(null);
+				}}>
+					Hello, dialog!
+				</Dialog>
+			) : null}
+
+			{example === 2 ? (
+				<Dialog
+					header="Not modal, custom dismiss button"
+					hasCancel={false}
+					confirmLabel="Whatever"
+					onAction={(type) => {
+						alert(type);
+						setExample(null);
+				}}>
+					Anything goes here, like a <Button>a button</Button> for example
+				</Dialog>
+			) : null}
+		</>
+	);
+}
 
 function Discovery() {
 	const form = useRef();
@@ -108,13 +147,21 @@ function Discovery() {
 			</Button>
 			<h2>Actions Component</h2>
 			<Actions onAction={(type) => alert(type)} />
+			<h2>Dialog Examples</h2>
+			<DialogExample />
 			<h2>Excel</h2>
 			<Excel
-				headers={['Name', 'Year']}
-				initialData={[
-					['Charles', '1859'],
-					['Antoine', '1943'],
-				]} />
+				schema={schema}
+				initialData={schema.name.samples.map((_, idx) => {
+					const element = {};
+					for (let key in schema) {
+						element[key] = schema[key].samples[idx];
+					}
+					return element;
+				})}
+				onDataChange={(data) => {
+					console.log(data);
+				}} />
 		</div>
 	);
 }

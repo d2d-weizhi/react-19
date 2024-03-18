@@ -17,8 +17,7 @@ function App() {
 	}
 	return (
 		<div>
-			<Excel headers={headers}
-				initialData={data} />
+			
 		</div>
 	);
 }
