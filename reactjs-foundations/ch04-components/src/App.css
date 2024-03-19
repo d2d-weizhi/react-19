@@ -1,5 +1,10 @@
 .App {
-  text-align: center;
+  text-align: left;
+  font-family: 'SF Pro Display';
+  font-size: 16px;
+  line-height: 21px;
+  margin: 4% auto;
+  width: 90%;
 }
 
 .App-logo {
