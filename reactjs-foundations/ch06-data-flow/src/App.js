@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+//import { useState } from 'react';
+// import PropsMutator from './components/props-mutator/PropsMutator';
+// import WelcomeMessage from './components/proptypes-classes/WelcomeMessage';
+// import MyComponent from './components/proptypes-func/MyComponent';
+// import SiteLink from './components/validating-nodes/SiteLink';
+// import BorderBox from './components/validating-elements/BorderBox';
+import Person from './components/validating-jsclass/Person';
+import FamilyTree from './components/validating-jsclass/FamilyTree';
 import './App.css';
 
 function App() {
+  //const [theNumber, setTheNumber] = useState(0);
+  var clarence = new Person('Clarence');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FamilyTree father={clarence} />
+      {/* <BorderBox>
+        <p>The first paragraph</p>
+        <p>The second paragraph</p>
+      </BorderBox> */}
+      {/* <SiteLink url="http://example.com" linkName={{name: 'Example'}} /> */}
+      {/* <MyComponent itemValue={2} /> */}
+      {/* <WelcomeMessage firstName="Weizhi" /> */}
+      {/* <PropsMutator theNumber={theNumber} setTheNumber={setTheNumber} />     */}
     </div>
   );
 }
