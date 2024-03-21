@@ -1,5 +1,10 @@
 .App {
-  text-align: center;
+  text-align: left;
+  font-family: 'SF Pro Text';
+  font-size: 1.15rem;
+  line-height:1.3rem;
+  width: 90%;
+  margin: 4% auto;
 }
 
 .App-logo {
