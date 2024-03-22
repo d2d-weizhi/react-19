@@ -1,5 +1,16 @@
 .App {
-  text-align: center;
+  text-align: left;
+  font-family: 'SF Pro Text';
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+  margin: 4% auto;
+  width: 960px;
+}
+
+input {
+  font-family: inherit;
+  padding: 4px;
+  border-radius: 4px;
 }
 
 .App-logo {
