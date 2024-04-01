@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+// import StyledParent from './components/cascading-styles/StyledParent';
+//import WarningMessage from './components/style-modules/WarningMessage';
+// import DisplayStatus from './components/styles-library/DisplayStatus';
+// import DisplayMessage from './components/css-modules/DisplayMessage';
 import './App.css';
+import ExampleComponent from './components/styled-components/ExampleComponent';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <StyledParent /> */}
+      {/* <WarningMessage warningMessage="An Error has Occurred" /> */}
+      {/* <DisplayStatus message={{type: 'success'}} /> */}
+      {/* <DisplayMessage /> */}
+      <ExampleComponent />
     </div>
   );
 }
