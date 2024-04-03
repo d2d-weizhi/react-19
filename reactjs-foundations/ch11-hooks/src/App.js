@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import CallMe from './components/memoized-callbacks/CallMe';
+// import CallMe from './components/memoized-callbacks/CallMe';
 // import ButtonContainer from './components/setters/ButtonContainer';
 // import NumberGuessing from './components/usestate-basics/NumberGuessing';
 // import RenderCounter from './components/useeffect-default/RenderCounter';
@@ -11,6 +11,8 @@ import CallMe from './components/memoized-callbacks/CallMe';
 // import ShippingAddress from './components/async-requests/ShippingAddress';
 // import { ThemeContext } from './components/using-context/theme-context';
 // import Counter from './components/reducer-basics/Counter';
+// import WordCount from './components/useref-basics/WordCount';
+import TextEdit from './components/imperative-handle/TextEdit';
 
 function App() {
 	//const { theme } = React.useContext(ThemeContext);
@@ -30,7 +32,9 @@ function App() {
 			{/* <TimerConditionalFun /> */}
 			{/* <ShippingAddress /> */}
 			{/* <Counter /> */}
-			<CallMe />
+			{/* <CallMe /> */}
+			{/* <WordCount /> */}
+			<TextEdit />
 		</div>
 	);
 }
