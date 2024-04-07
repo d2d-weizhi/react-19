@@ -1,5 +1,7 @@
 import "./App.css";
-import RouteRedirection from "./components/redirection/RouteRedirection";
+import ViewLocation from "./components/location-obj/ViewLocation";
+// import NavMenu from "./components/history/NavMenu";
+// import RouteRedirection from "./components/redirection/RouteRedirection";
 // import ComponentProp from "./components/render-props/ComponentProp";
 // import HomeScreen from './components/url-params/HomeScreen';
 // import ChooseYourAdventure from './components/reactrouterdom-v5/ChooseYourAdventure';
@@ -8,7 +10,9 @@ import RouteRedirection from "./components/redirection/RouteRedirection";
 function App() {
   return (
     <div className="App">
-			<RouteRedirection />
+      <ViewLocation />
+      {/* <NavMenu /> */}
+			{/* <RouteRedirection /> */}
       {/* <ComponentProp /> */}
       {/* <HomeScreen /> */}
       {/* <MainMenu /> */}
