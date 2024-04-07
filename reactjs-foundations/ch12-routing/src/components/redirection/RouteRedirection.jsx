@@ -1,4 +1,4 @@
-import { redirect, Route, Routes, Link, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, Link, useLocation } from "react-router-dom";
 
 function Header (props) {
 	return <Link to="/users">View a list of users</Link>;
@@ -26,8 +26,11 @@ function RouteRedirection(props) {
 			<Header />
 			<Routes>
 				<Route path="/users/list" element={<UsersList />} />
-
-				<Route path="/users" element={<UsersList />} />
+				{/* 
+					With v6 of the React Router, Redirect component 
+					has been replaced with Navigate 
+				*/}
+				<Route path="/users" element={<Navigate to='/users/list' />} />
 
 				<Route element={<NoMatch />} />
 			</Routes>
