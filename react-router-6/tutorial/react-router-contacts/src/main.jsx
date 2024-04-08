@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import App, { loader as appLoader, action as appAction } from './App.jsx';
 import ErrorPage from './components/ErrorPage';
+import Home from './components/Home/index.jsx';
 import Contact, { loader as contactLoader } from './components/Contact';
 import EditContact, {action as editAction} from './components/EditContact/index.jsx';
 import { action as destroyAction } from './components/destroy.jsx';
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
 		loader: appLoader,
 		action: appAction,
 		children: [
+			{ index: true, element: <Home /> },
 			{
 				path: "contacts/:contactId",
 				element: <Contact />,
