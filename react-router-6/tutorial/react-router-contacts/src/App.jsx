@@ -1,6 +1,25 @@
-import { Outlet } from 'react-router-dom';
+import { 
+	Outlet, 
+	Link, 
+	useLoaderData, 
+	Form, 
+	redirect 
+} from 'react-router-dom';
+import { getContacts, createContact } from './contacts';
+import "./App.css";
+
+export async function loader() {
+	const contacts = await getContacts();
+	return { contacts };
+}
+
+export async function action() {
+	const contact = await createContact();
+	return redirect(`/contacts/${contact.id}/edit`);
+}
 
 function App() {
+	const { contacts } = useLoaderData();
 	return (
 		<>
 			<div id="sidebar">
@@ -23,15 +42,37 @@ function App() {
 							aria-live="polite"
 						></div>
 					</form>
-					<form method="post">
+					<Form method="post">
 						<button type="submit">New</button>
-					</form>
+					</Form>
 				</div>
 				<nav>
-					<ul>
-						<li><a href={`/contacts/1`}>Your Name</a></li>
-						<li><a href={`/contacts/2`}>You Friend</a></li>
-					</ul>
+					{contacts.length ? (
+						<ul>
+							{contacts.map((contact) => (
+								<li key={contact.id}>
+									<Link to={`contacts/${contact.id}`}>
+										{contact.first || contact.last ? (
+											<>
+												{contact.first} {contact.last}
+											</>
+										) : (
+											<i>No Name</i>
+										)}{" "}
+										{contact.favourite && <span>★</span>}
+									</Link>
+								</li>
+							))}
+						</ul>
+					) : (
+						<p>
+							<i>No contacts</i>
+						</p>
+					)}
+					{/* <ul>
+						<li><Link to={`contacts/1`}>Your Name</Link></li>
+						<li><Link to={`contacts/2`}>Your Friend</Link></li>
+					</ul> */}
 				</nav>
 			</div>
 			<div id="detail">
