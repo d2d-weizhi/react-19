@@ -1,38 +1,23 @@
 .App {
-  text-align: center;
+	text-align: left;
+	width: 90%;
+	margin: 4% auto;
+	font-family: 'SF Pro Display';
+	font-size: 16px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.errorPanel {
+	border-radius: 0.5rem;
+	border: 1px solid rgb(255, 149, 149);
+	background-color:rgb(255, 187, 187);
+	padding: 8px 32px 32px 32px;
+	width: 500px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App h1 {
+	font-family: inherit;
+	color: red;
+	font-weight: 200;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 }
