@@ -16,11 +16,21 @@ class AddProfile extends Component {
 	constructor(props) {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleCompanyNameChanged = this.handleCompanyNameChanged.bind(this);
+		this.companyNameChanged = this.companyNameChanged.bind(this);
+		this.profileImageChanged = this.profileImageChanged.bind(this);
+		this.aboutCompanyChanged = this.aboutCompanyChanged.bind(this);
 	}
 
-	handleCompanyNameChanged(event) {
+	companyNameChanged(event) {
 		this.setState({ companyName: event.target.value });
+	}
+
+	profileImageChanged(event) {
+		this.setState({ profileImage: event.target.value });
+	}
+
+	aboutCompanyChanged(event) {
+		this.setState({ aboutCompany: event.target.value });
 	}
 
 	handleSubmit (event) {
@@ -36,7 +46,7 @@ class AddProfile extends Component {
 
 		axios.post(
 			`${API_ROOT_URI}/project-owners/createProfile`,
-			{profile}
+			profile
 		).then ((res) => {
 			console.log(res);
 			console.log(res.data);
@@ -52,9 +62,28 @@ class AddProfile extends Component {
 						<input
 							type="text"
 							name="companyName"
-							onChange={this.handleCompanyNameChanged}
+							onChange={this.companyNameChanged}
 						/>
-					</label>
+					</label><br />
+					<label>
+						Profile Image:
+						<input
+							type="text"
+							name="profileImage"
+							onChange={this.profileImageChanged}
+						/>
+					</label><br />
+					<label>
+						About Company:
+						<textarea
+							name="aboutCompany"
+							onChange={this.aboutCompanyChanged}
+							style={{
+								width: "400px",
+								height: "280px"
+							}} />
+					</label><br />
+					<button type="submit">Create Profile</button>
 				</form>
 			</div>
 		);
