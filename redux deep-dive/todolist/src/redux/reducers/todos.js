@@ -11,7 +11,7 @@ export default function todos(state = initialState, action) {
 			const {id, content} = action.payload;
 			return {
 				...state,
-				addIds: [...state.allIds, id],
+				allIds: [...state.allIds, id],
 				byIds: {
 					...state.byIds,
 					[id]: {
