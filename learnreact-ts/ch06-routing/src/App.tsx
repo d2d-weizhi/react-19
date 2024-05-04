@@ -1,13 +1,13 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+import { Header } from './Header';
 import './App.css';
-import { Alert } from './Alert';
 
 function App() {
 	return (
 		<div className="App">
-			<Alert heading="Success" closable={true}>
-				Everything is really good!
-			</Alert>
+			<Header />
+			<Outlet />
 		</div>
 	);
 }
