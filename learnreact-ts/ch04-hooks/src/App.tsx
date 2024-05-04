@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-import { Alert } from './Alert';
+import { PersonScore } from './PersonScore';
+// import AnotherComponent from './components/another-component';
 
 function App() {
 	return (
 		<div className="App">
-			<Alert heading="Success" closable={true}>
-				Everything is really good!
-			</Alert>
+			<PersonScore />
 		</div>
 	);
 }
