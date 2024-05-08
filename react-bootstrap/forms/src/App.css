@@ -1,0 +1,14 @@
+.App {
+  text-align: left;
+  width: 90%;
+  margin: 4% auto;
+  font-family: 'SF Pro Display';
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.demo-col {
+  padding: 4px;
+  background-color: #379a55;
+  color: #fff;
+}
