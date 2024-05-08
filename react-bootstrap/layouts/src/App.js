@@ -1,6 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { FirstAndLast } from './grid-system/ordering-offset';
+import { OffsetExample } from './grid-system/ordering-offset';
+// import { FirstAndLast } from './grid-system/ordering-offset';
 // import { MixAndMatch } from './grid-system/responsive-grid';
 // import AutoLayoutVariable from './grid-system/auto-layout-variable';
 // import AutoLayoutSizing from './grid-system/auto-layout-sizing';
@@ -10,7 +11,8 @@ import { FirstAndLast } from './grid-system/ordering-offset';
 function App() {
 	return (
 		<div className="App">
-			<FirstAndLast />
+			<OffsetExample />
+			{/* <FirstAndLast /> */}
 			{/* <MixAndMatch /> */}
 			{/* <FluidContainer /> */}
 			{/* <BasicContainer /> */}
