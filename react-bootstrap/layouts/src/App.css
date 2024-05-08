@@ -9,5 +9,6 @@
 
 .demo-col {
   padding: 4px;
-  border: 1px solid #90ffb1;
+  background-color: #379a55;
+  color: #fff;
 }
