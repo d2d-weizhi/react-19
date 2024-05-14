@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { FormFloatingTextarea } from './form-floating-labels';
+import { FormFloatingCustom } from './form-floating-labels';
 // import { CheckInlineExample } from './form-checks-radios';
 // import { SelectSizesExample } from './form-select';
 // import FormTextExample from './form-text';
@@ -9,7 +9,7 @@ import { FormFloatingTextarea } from './form-floating-labels';
 function App() {
 	return (
 		<div className="App">
-			<FormFloatingTextarea />
+			<FormFloatingCustom />
 		</div>
 	);
 }
