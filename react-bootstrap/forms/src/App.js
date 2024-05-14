@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { SegmentedButtonDropdowns } from './form-input-group';
+import { FormFloatingTextarea } from './form-floating-labels';
 // import { CheckInlineExample } from './form-checks-radios';
 // import { SelectSizesExample } from './form-select';
 // import FormTextExample from './form-text';
@@ -9,7 +9,7 @@ import { SegmentedButtonDropdowns } from './form-input-group';
 function App() {
 	return (
 		<div className="App">
-			<SegmentedButtonDropdowns />
+			<FormFloatingTextarea />
 		</div>
 	);
 }
