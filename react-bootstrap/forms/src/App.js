@@ -1,11 +1,15 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { ColorPicker } from './form-controls';
+import { SegmentedButtonDropdowns } from './form-input-group';
+// import { CheckInlineExample } from './form-checks-radios';
+// import { SelectSizesExample } from './form-select';
+// import FormTextExample from './form-text';
+// import { ColorPicker } from './form-controls';
 
 function App() {
 	return (
 		<div className="App">
-			<ColorPicker />
+			<SegmentedButtonDropdowns />
 		</div>
 	);
 }
