@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { FormFloatingCustom } from './form-floating-labels';
+import { GridAutoSizing } from './form-layouts';
 // import { CheckInlineExample } from './form-checks-radios';
 // import { SelectSizesExample } from './form-select';
 // import FormTextExample from './form-text';
@@ -9,7 +9,7 @@ import { FormFloatingCustom } from './form-floating-labels';
 function App() {
 	return (
 		<div className="App">
-			<FormFloatingCustom />
+			<GridAutoSizing />
 		</div>
 	);
 }
