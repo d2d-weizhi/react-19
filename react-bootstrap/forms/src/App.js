@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { GridAutoSizing } from './form-layouts';
+import { InputGroupValidation } from './form-validations';
 // import { CheckInlineExample } from './form-checks-radios';
 // import { SelectSizesExample } from './form-select';
 // import FormTextExample from './form-text';
@@ -9,7 +9,7 @@ import { GridAutoSizing } from './form-layouts';
 function App() {
 	return (
 		<div className="App">
-			<GridAutoSizing />
+			<InputGroupValidation />
 		</div>
 	);
 }
