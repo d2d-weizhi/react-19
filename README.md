@@ -1,4 +1,4 @@
-# React.js (mainly v17 & v18) Deep-dive
+# React (v18) Deep-dive
 
 ## Why v17?
 
