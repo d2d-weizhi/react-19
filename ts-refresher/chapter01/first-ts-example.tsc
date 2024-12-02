@@ -1,0 +1,5 @@
+let isEnabled = true;
+let isAlive= false;
+
+console.log(isEnabled);
+console.log(isAlive);
