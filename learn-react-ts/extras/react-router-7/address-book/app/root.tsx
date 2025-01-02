@@ -6,99 +6,99 @@ import {
 	ScrollRestoration,
 	isRouteErrorResponse,
 } from "react-router";
-import type { Route } from "./+types/root";
-import { getContacts } from './data';
+import type {Route} from "./+types/root";
+import {getContacts} from './data';
 
 import appStylesHref from "./app.css?url";
 
 export async function clientLoader() {
 	const contacts = await getContacts();
-	return { contacts };
+	return {contacts};
 }
 
 export function HydrateFallback() {
 	return (
-			<div id="loading-splash">
-				<div id="loading-splash-spinner" />
-				<p>Loading, please wait...</p>
-			</div>
+		<div id="loading-splash">
+			<div id="loading-splash-spinner"/>
+			<p>Loading, please wait...</p>
+		</div>
 	);
 }
 
-export default function App({ loaderData }: Route.ComponentProps) {
-	const { contacts } = loaderData;
+export default function App({loaderData}: Route.ComponentProps) {
+	const {contacts} = loaderData;
 	
 	// @ts-ignore
 	return (
-			<>
-				<div id="sidebar">
-					<h1>
-						<Link to="about">React Router Contacts</Link>
-					</h1>
-					<div>
-						<Form id="search-form" role="search">
-							<input
-									aria-label="Search contacts"
-									id="q"
-									name="q"
-									placeholder="Search"
-									type="search"
-							/>
-							<div aria-hidden hidden={true} id="search-spinner" />
-						</Form>
-						<Form method="post">
-							<button type="submit">New</button>
-						</Form>
-					</div>
-					<nav>
-						{contacts.length ? (
-								<ul>
-									{contacts.map(contact => (
-											<li key={contact.id}>
-												<Link to={`contacts/${contact.id}`}>
-													{contact.first || contact.last ? (
-															<>
-																{contact.first} {contact.last}
-															</>
-													) : (
-															<i>No Name</i>
-													)}
-													{contact.favourite ? (
-															<span>★</span>
-													) : null}
-												</Link>
-											</li>
-									))}
-								</ul>
-								) : (
-								<p>
-									<i>No Contacts</i>
-								</p>
-						)}
-					</nav>
+		<>
+			<div id="sidebar">
+				<h1>
+					<Link to="about">React Router Contacts</Link>
+				</h1>
+				<div>
+					<Form id="search-form" role="search">
+						<input
+								aria-label="Search contacts"
+								id="q"
+								name="q"
+								placeholder="Search"
+								type="search"
+						/>
+						<div aria-hidden hidden={true} id="search-spinner"/>
+					</Form>
+					<Form method="post">
+						<button type="submit">New</button>
+					</Form>
 				</div>
-				<div id="detail">
-					<Outlet />
-				</div>
-			</>
+				<nav>
+					{contacts.length ? (
+							<ul>
+								{contacts.map(contact => (
+										<li key={contact.id}>
+											<Link to={`contacts/${contact.id}`}>
+												{contact.first || contact.last ? (
+														<>
+															{contact.first} {contact.last}
+														</>
+												) : (
+														<i>No Name</i>
+												)}
+												{contact.favourite ? (
+														<span>★</span>
+												) : null}
+											</Link>
+										</li>
+								))}
+							</ul>
+					) : (
+							<p>
+								<i>No Contacts</i>
+							</p>
+					)}
+				</nav>
+			</div>
+			<div id="detail">
+				<Outlet/>
+			</div>
+		</>
 	);
 }
 
 // The Layout component is a special export for the root route.
 // It acts as your document's "app shell" for all route components, HydrateFallback, and ErrorBoundary
 // For more information, see https://reactrouter.com/explanation/special-files#layout-export
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({children}: { children: React.ReactNode }) {
 	return (
 			<html lang="en">
 			<head>
-				<meta charSet="utf-8" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="stylesheet" href={appStylesHref} />
+				<meta charSet="utf-8"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1"/>
+				<link rel="stylesheet" href={appStylesHref}/>
 			</head>
 			<body>
 			{children}
-			<ScrollRestoration />
-			<Scripts />
+			<ScrollRestoration/>
+			<Scripts/>
 			</body>
 			</html>
 	);
@@ -106,7 +106,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 // The top most error boundary for the app, rendered when your app throws an error
 // For more information, see https://reactrouter.com/start/framework/route-module#errorboundary
-export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+export function ErrorBoundary({error}: Route.ErrorBoundaryProps) {
 	let message = "Oops!";
 	let details = "An unexpected error occurred.";
 	let stack: string | undefined;
@@ -123,14 +123,14 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 	}
 	
 	return (
-			<main id="error-page">
-				<h1>{message}</h1>
-				<p>{details}</p>
-				{stack && (
-						<pre>
+		<main id="error-page">
+			<h1>{message}</h1>
+			<p>{details}</p>
+			{stack && (
+				<pre>
           <code>{stack}</code>
         </pre>
-				)}
-			</main>
+			)}
+		</main>
 	);
 }
