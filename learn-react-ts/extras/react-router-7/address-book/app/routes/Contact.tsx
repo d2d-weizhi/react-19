@@ -1,16 +1,27 @@
-import { Form } from "react-router";
+import { Form, useFetcher } from "react-router";
+import { getContact, updateContact } from "../data";
+import type { Route } from "./+types/Contact";
 
 import type { ContactRecord } from "../data";
 
-export default function Contact() {
-	const contact = {
-		first: "Your",
-		last: "Name",
-		avatar: "https://placecats.com/200/200",
-		twitter: "your_handle",
-		notes: "Some notes",
-		favourite: true,
-	};
+export async function loader({ params }: Route.LoaderArgs) {
+	const contact = await getContact(params.contactId);
+	if (!contact) {
+		throw new Response("Not found", { status: 404 });
+	}
+	
+	return { contact };
+}
+
+export async function action({ params, request }: Route.ActionArgs) {
+	const formData = await request.formData();
+	return updateContact(params.contactId, {
+		favourite: formData.get("favourite") === "true",
+	});
+}
+
+export default function Contact({ loaderData }: Route.ComponentProps) {
+	const { contact } = loaderData;
 	
 	return (
 		<div id="contact">
@@ -68,10 +79,13 @@ export default function Contact() {
 }
 
 function Favourite({ contact }: { contact: Pick<ContactRecord, "favourite"> }) {
-	const favourite = contact.favourite;
+	const fetcher = useFetcher();
+	const favourite = fetcher.formData
+		? fetcher.formData.get("favourite") === "true"
+		: contact.favourite;
 	
 	return (
-		<Form method="post">
+		<fetcher.Form method="post">
 			<button
 				aria-label={favourite
 					? "Remove from favourites"
@@ -82,6 +96,6 @@ function Favourite({ contact }: { contact: Pick<ContactRecord, "favourite"> }) {
 			>
 				{favourite ? "★" : "☆"}
 			</button>
-		</Form>
+		</fetcher.Form>
 	);
 }
