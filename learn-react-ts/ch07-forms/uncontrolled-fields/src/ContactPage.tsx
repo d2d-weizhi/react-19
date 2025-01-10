@@ -8,16 +8,18 @@ type Contact = {
 };
 
 export function ContactPage() {
-	const [contact, setContact] = useState<Contact>({
-		name: "",
-		email: "",
-		reason: "",
-		notes: "",
-	});
+	
 	const fieldStyle = "flex flex-col mb-2";
 	
 	function handleSubmit(e: FormEvent<HTMLFormElement>) {
 		e.preventDefault();
+		const formData = new FormData(e.currentTarget);
+		const contact = {
+			name: formData.get("name"),
+			email: formData.get("email"),
+			reason: formData.get("reason"),
+			notes: formData.get("notes"),
+		} as Contact;
 		console.log('Submitted details:', contact);
 	}
 	
@@ -35,10 +37,7 @@ export function ContactPage() {
 					<input
 						type="text"
 						id="name"
-						value={contact.name}
-						onChange={(e) =>
-							setContact({ ...contact, name: e.target.value })
-						}
+						name="name"
 					/>
 				</div>
 				<div className={fieldStyle}>
@@ -46,20 +45,14 @@ export function ContactPage() {
 					<input
 						type="email"
 						id="email"
-						value={contact.email}
-						onChange={(e) =>
-							setContact({ ...contact, email: e.target.value })
-						}
+						name="email"
 					/>
 				</div>
 				<div className={fieldStyle}>
 					<label htmlFor="reason">Reason you need to contact us</label>
 					<select
 						id="reason"
-						value={contact.reason}
-						onChange={(e) =>
-							setContact({ ...contact, reason: e.target.value })
-						}
+						name="reason"
 					>
 						<option value=""></option>
 						<option value="Support">Support</option>
@@ -71,10 +64,7 @@ export function ContactPage() {
 					<label htmlFor="notes">Additional Notes</label>
 					<textarea
 						id="notes"
-						value={contact.notes}
-						onChange={(e) =>
-							setContact({ ...contact, notes: e.target.value })
-						}
+						name="notes"
 					/>
 				</div>
 				<div>
