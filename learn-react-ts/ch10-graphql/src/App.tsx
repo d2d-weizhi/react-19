@@ -1,10 +1,17 @@
 import React from 'react';
+import {
+	QueryClient,
+	QueryClientProvider,
+} from "@tanstack/react-query";
+import { Header } from "./Header";
+
+const queryClient = new QueryClient();
 
 function App() {
 	return (
-		<div>
-			<h1>Hello world!</h1>
-		</div>
+		<QueryClientProvider client={queryClient}>
+			<Header />
+		</QueryClientProvider>
 	);
 }
 
