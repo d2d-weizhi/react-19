@@ -1,3 +1,4 @@
+import { gql } from '@apollo/client';
 import { ViewerData } from './types';
 
 type GetViewerResponse = {
@@ -6,7 +7,7 @@ type GetViewerResponse = {
 	};
 };
 
-export const GET_VIEWER_QUERY = `
+export const GET_VIEWER_QUERY = gql`
 query {
 	viewer {
 		name
