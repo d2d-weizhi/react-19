@@ -1,25 +1,23 @@
-import {Action} from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
+import todosReducer from './features/todos/todosSlice'
+import filtersReducer from "./features/filters/filtersSlice";
 
-const initialState = {
-	todos: [
-		{ id: 0, text: 'Learn React', completed: false },
-		{ id: 1, text: 'Learn Redux', completed: false, colour: 'purple' },
-		{ id: 2, text: 'Building something fun!', completed: false, colour: 'blue' },
-	],
-	filters: {
-		status: 'All',
-		colours: []
-	}
-};
+const rootReducer = combineReducers({
+	// Define a top-level state field name `todos`, handled by `todosReducer`
+	todos: todosReducer,
+	filters: filtersReducer,
+})
 
+export default rootReducer;
+
+/*
 // Use the initialState as a default value
-export default function appReducer(state = initialState, action: Action) {
-	// The reducer normally looks at the action type field to decide what happens
-	switch (action.type) {
-		// Do something here based on the different types of actions
-		default:
-			// If this reducer doesn't recognize the action type, or doesn't care about this specific action,
-			// return the existing state unchanged.
-			return state;
+export default function appReducer(state: any = {}, action: { type: string; payload: any; }) {
+	// always return a new object for the root state
+	return {
+		// the value of `state.todos` is whatever the todos reducer returns
+		todos: todosReducer(state.todos, action),
+		// For both reducers, we only pass in their slice of the state
+		filters: filtersReducer(state.filters, action)
 	}
-}
+}*/
