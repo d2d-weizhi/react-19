@@ -9,7 +9,7 @@ function nextTodoId(todos: any[]) {
 	return maxId + 1
 }
 
-export default function todosReducer(state = initialState, action: { type: string; payload: number; }) {
+export default function todosReducer(state = initialState, action: { type: string; payload: any; }) {
 	switch (action.type) {
 		case 'todos/todoAdded': {
 			// Can return just the new todos array - no extra object around it
