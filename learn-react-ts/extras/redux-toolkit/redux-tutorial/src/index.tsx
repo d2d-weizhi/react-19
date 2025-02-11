@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { store } from './store';
+import store from './store';
 import reportWebVitals from './reportWebVitals';
 
 // Log the initial state
@@ -29,6 +29,12 @@ store.dispatch({
 	type: 'filters/colourFilterChanged',
 	payload: { colour: 'red', changeType: 'added' }
 });
+
+// Stop listening to state updates
+unsubscribe();
+
+//Dispatch one more action to see what happens
+store.dispatch({ type: 'todos/todoAdded', payload: 'Try creating a store' });
 
 
 const root = ReactDOM.createRoot(
