@@ -1,6 +1,12 @@
+export const StatusFilters = {
+	All: 'all',
+	Active: 'active',
+	Completed: 'completed',
+};
+
 const initialState = {
 	status: 'All',
-	colours: []
+	colors: []
 }
 
 export default function filtersReducer(state = initialState, action: { type: string; payload: any }) {

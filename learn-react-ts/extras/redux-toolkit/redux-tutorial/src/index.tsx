@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import store from './store';
@@ -7,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 
 // Log the initial state
 console.log('Initial state: ', store.getState());
-// { todos: [...], filters: { status, colours } }
+// { todos: [...], filters: { status, colors } }
 
 // Every time the state changes, log it
 // Note that subscribe() returns a function for unregistering the listener
@@ -26,8 +27,8 @@ store.dispatch({ type: 'todos/todoToggled', payload: 1 });
 store.dispatch({ type: 'filters/statusFilterChanged', payload: 'Active' });
 
 store.dispatch({
-	type: 'filters/colourFilterChanged',
-	payload: { colour: 'red', changeType: 'added' }
+	type: 'filters/colorFilterChanged',
+	payload: { color: 'red', changeType: 'added' }
 });
 
 // Stop listening to state updates
@@ -42,7 +43,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
 	<React.StrictMode>
-		<App />
+		<Provider store={store}>
+			<App />
+		</Provider>
 	</React.StrictMode>
 );
 
